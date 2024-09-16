@@ -63,8 +63,8 @@ pub fn main() anyerror!void {
     const rand_vel = [2]f32{ -7, 7 };
     var ball = Ball{
         .position = .{ .x = screenWidth / 2, .y = screenHeight / 2 },
-        .speed_x = rand_vel[@bitCast(@as(i64, rl.getRandomValue(0, 1)))],
-        .speed_y = rand_vel[@bitCast(@as(i64, rl.getRandomValue(0, 1)))],
+        .speed_x = rand_vel[@intCast(rl.getRandomValue(0, 1))],
+        .speed_y = rand_vel[@intCast(rl.getRandomValue(0, 1))],
         .left_racket = &racket_1,
         .right_racket = &racket_2,
     };
