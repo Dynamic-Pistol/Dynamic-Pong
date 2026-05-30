@@ -22,7 +22,7 @@ const Ball = struct {
         if ((rl.checkCollisionCircleRec(self.position, radius, self.left_racket.*) and self.position.x >
             self.left_racket.x + self.left_racket.width) or
             (rl.checkCollisionCircleRec(self.position, radius, self.right_racket.*) and self.position.x <
-            self.right_racket.x + self.right_racket.width))
+                self.right_racket.x + self.right_racket.width))
         {
             self.speed_x = -self.speed_x;
         }
@@ -73,8 +73,8 @@ pub fn main() anyerror!void {
     while (!rl.windowShouldClose()) { // Detect window close button or ESC key
         // Update
         //----------------------------------------------------------------------------------
-        racket_1.y += (bool_2_float(rl.isKeyDown(.key_s)) - bool_2_float(rl.isKeyDown(.key_w))) * speed * rl.getFrameTime();
-        racket_2.y += (bool_2_float(rl.isKeyDown(.key_down)) - bool_2_float(rl.isKeyDown(.key_up))) * speed * rl.getFrameTime();
+        racket_1.y += (bool_2_float(rl.isKeyDown(.s)) - bool_2_float(rl.isKeyDown(.w))) * speed * rl.getFrameTime();
+        racket_2.y += (bool_2_float(rl.isKeyDown(.down)) - bool_2_float(rl.isKeyDown(.up))) * speed * rl.getFrameTime();
         racket_1.y = std.math.clamp(racket_1.y, 0, screenHeight - 100);
         racket_2.y = std.math.clamp(racket_2.y, 0, screenHeight - 100);
         ball.update();
